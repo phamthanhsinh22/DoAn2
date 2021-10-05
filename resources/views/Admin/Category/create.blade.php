@@ -16,7 +16,6 @@
                                     <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
                                 </div>
                                 
-                                
                                 <button type="submit"  class="btn btn-info">Add</button>
                             </form>
                             </div>

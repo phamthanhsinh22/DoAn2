@@ -1,18 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Repositories\CategoryRepository;
-use App\Repositories\interfaces\CategoryRepositoryInterface as CategoryInterface;
+
 use Illuminate\Http\Request;
-use App\Models\Category;
-class CategoryController extends Controller
+use App\Models\User;
+class userController extends Controller
 {
-    protected $categoryRepository;
-
-    public function __construct(CategoryInterface $categoryRepository){
-
-        $this->categoryRepository = $categoryRepository;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categoryList = $this->categoryRepository->getAll();
-        return view('Admin.category.all_category',['categoryList'=>$categoryList]);
+        $userList = User::all();
+        return view('Admin.User.all_user', ['userList' => $userList]);
     }
 
     /**
@@ -31,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('Admin.category.create');
+        return view('Admin.User.create');
     }
 
     /**
@@ -42,10 +35,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = array();
-        $data['catName'] = $request->category_name;
-        $data = $this->categoryRepository->create($data);
-        return redirect()->route('Category.create');
+       $data = array();
+       $data['email'] = $request->email;
+       $data['password'] = $request->password;
+       $data = User::create($data);
+       return redirect()->route('User.index');
     }
 
     /**
@@ -56,7 +50,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -67,8 +61,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = $this->categoryRepository->find('id')->first();
-        return view('Admin.Category.edit',compact('category'));
+        //
     }
 
     /**
@@ -80,11 +73,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category1 = $this->categoryRepository->find($id)->first();
-        $category = array();
-        $category['catName'] = $request->category_name;
-        $category = $category1->update($category);
-        return redirect()->route('Category.index');
+        //
     }
 
     /**
@@ -95,10 +84,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $message = "Success full deleted";
-        if(!$this->categoryRepository->delete($id)){
-            $message = "Delete full failed";
-        }
-        return redirect()->route('Category.index')->with('message',$message);
+        //
     }
 }

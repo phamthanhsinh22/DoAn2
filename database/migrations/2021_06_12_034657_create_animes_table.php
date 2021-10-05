@@ -18,6 +18,7 @@ class CreateAnimesTable extends Migration
             $table->string('Title');
             $table->text('Content');
             $table->string('Video');
+            $table->string('slug_movie');
             $table->string('Images');
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
@@ -35,5 +36,5 @@ class CreateAnimesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('animes');
-    }
+        
 }

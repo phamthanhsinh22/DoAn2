@@ -13,10 +13,9 @@
         </div>
 		<div id="qc_clgt"> </div>
 
-        <ol class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" title="Xem Anime" href="/"><span itemprop="name">HOME</span></a></li>
+        <ol class="breadcrumb"><li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a>HOME</span></a></li>
         	@foreach($type_menu as $typ)
-
-        	<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" title="Xem Anime" href="./the-loai/ecchi-25/1.html"><span itemprop="name">{{$typ->typeName}}</span></a></li>
+        	<li><a href=""><span itemprop="name">{{$typ->typeName}}</span></a></li>
         	@endforeach
         	</ol>
         	
@@ -66,8 +65,8 @@
                             <div class="btn-cs toggle-light" data-on="Bật đèn" data-off="Tắt đèn"><i class="btn-cs-icon icon-light-sm"></i><div id="light-status">Tắt đèn</div></div>
 							<a class="btn-cs add-favorite" rel="nofollow" id="favorite" href="javascript:void(0)" onclick="return favo(0,5901)"><i class="btn-cs-icon icon-add-sm"></i><span class="btn-text">Lưu</span></a>
 							<div class="btn-cs toggle-size" data-on="Thu nhỏ" data-off="Phóng to" title="Phóng to/Thu nhỏ"><i class="btn-cs-icon icon-expand-sm"></i><span><div id="pttn">Phóng to</div></span></div>
-                            <a class="btn-cs autoprev" rel="nofollow" onclick="nextEpisodeHand('');"><i class="btn-cs-icon icon-autoprev-sm"></i><span>Prev</span></a>
-							<a class="btn-cs autonext" rel="nofollow" onclick="nextEpisodeHand('https://anime47.com/xem-phim-kuzu-no-honkai-ep-02/170017.html');"><i class="btn-cs-icon icon-autonext-sm"></i><span>Next</span></a>
+                            <a class="btn-cs autoprev" href="{{URL('detail/'.$id_anime.'&'.($episode-1))}}" rel="nofollow" onclick="nextEpisodeHand('');"><i class="btn-cs-icon icon-autoprev-sm"></i><span>Prev</span></a>
+							<a class="btn-cs autonext" href="{{URL('detail/'.$id_anime.'&'.($episode+1))}}" rel="nofollow" onclick="nextEpisodeHand('https://anime47.com/xem-phim-kuzu-no-honkai-ep-02/170017.html');"><i class="btn-cs-icon icon-autonext-sm"></i><span>Next</span></a>
                             <a class="btn-cs error-player" target="_blank" rel="nofollow" href="https://anime47.com/chuyen.php?url=aHR0cDovL3d3dy55YW1pLXNvcmEub3JnLw=="><i class="btn-cs-icon icon-error-sm"></i><span>Link Nguồn</span></a>
                             
                             <div class="btn-cs show_hide" href="javascript:void(0)" onclick="TaiAnime(170016);"><i class="btn-cs-icon icon-download-sm"></i><span>Download</span></div>	
@@ -151,7 +150,23 @@ function player_post(t, a) {
 			
 </script>
 
-<div class="block2 servers"><div class="server" data-type="watch"><div class="name"><img style="margin-top: -7px;" src=""> <span>Yamisora</span>  </div><div class="episodes col-lg-12 col-md-12 col-sm-12"><ul><li><a href="" class="active btn-episode" group="1">01 </a></li></ul></div></div></div>
+<div class="block2 servers"><div class="server" data-type="watch"><div class="name"><img style="margin-top: -7px;" src=""> <span>Yamisora</span>  </div><div class="episodes col-lg-12 col-md-12 col-sm-12">
+    <ul>
+        
+    <li><a href="" class="active btn-episode" group="1">01</a></li>
+    <li><a href="" class="active btn-episode" group="2">02</a></li>
+    <li><a href="" class="active btn-episode" group="3">03</a></li>
+        
+    </ul>
+</div></div></div>
+<form class="comment-form" method="post"> <input type="hidden" name="storyID" id="storyID" value="24491"> <input type="hidden" name="replyTo" value="0">
+                    <textarea aria-label="Bình luận" id="comment-message" name="message" placeholder="Nội dung bình luận tối thiểu 15 ký tự, tối đa 500 ký tự!"></textarea>
+                    <input type="hidden" name='id_anime' value="{{$typ->typeName}}">
+                    <p id="comment-char-count">Số ký tự: <span>0</span></p>
+                    <div class="text-right">
+                        <button type="submit"><i class="fa-paper-plane"></i> Gửi</button>
+                    </div>
+</form>
 <script data-cfasync="false">(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;

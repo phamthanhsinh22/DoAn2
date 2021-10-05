@@ -23,7 +23,7 @@
     <meta name="revisit-after" content="1 days">
     <meta property="fb:app_id" content="907721805949566">   
     <meta property="fb:pages" content="397358770725528" />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />   
     <link href="https://anime47.com/skin/24032017/css/public.css" rel="stylesheet">
     <link href="https://anime47.com/skin/24032017/css/style.css?v=1.47" rel="stylesheet">
     <link href="https://anime47.com/skin/24032017/css/vtlai.css?v=1.3" rel="stylesheet">
@@ -92,3 +92,4 @@
 
 </body>
 </html>
+<!DOCTYPE html>

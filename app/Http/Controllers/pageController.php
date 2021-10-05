@@ -34,24 +34,26 @@ class pageController extends Controller
         $type_menu = $this->typeRepository->getAll();
         $obj_slider = db::table('animes')->limit(7)->get();
         $obj_content = $this->objectRepository->getAll();
-        return view('layout.types',compact('cate_menu','type_menu','obj_slider','obj_content','type_menu1'));
+        $type_id = db::table('types')->where('slug_type',$id)->get();
+        return view('layout.types',compact('cate_menu','type_menu','obj_slider','obj_content','type_menu1','type_id'));
     }
     public function getObject($id){
-        $object_ID = $this->objectRepository->find($id);
+       // $object_ID = $this->objectRepository->find($id);
         $cate_menu = $this->categoryRepository->getAll();
         $type_menu = $this->typeRepository->getAll();
-        $obj_slider = db::table('animes')->limit(7)->get();
+        $obj_slider = db::table('animes')->where('slug',$id)->limit(7)->get();
         $obj_content = $this->objectRepository->getAll();
-        
-        return view('layout.object',compact('cate_menu','type_menu','obj_content','object_ID','obj_slider'));
+        $object_id = db::table('animes')->where('slug',$id)->get();
+        return view('layout.object',compact('cate_menu','type_menu','obj_content','obj_slider','object_id'));
     }
-    public function getDetail($id){    
+    public function getDetail($id_anime, $episode){    
         $cate_menu = $this->categoryRepository->getAll();
         $type_menu = $this->typeRepository->getAll();
         $obj_slider = db::table('animes')->limit(7)->get();
         $obj_content = $this->objectRepository->getAll();
-        $object_ID = $this->objectRepository->find($id);
-        return view('layout.detail',compact('cate_menu','type_menu','obj_slider','obj_content','object_ID'));
+        $object_ID = db::table('chappers')->where('anime_id',$id_anime)->where('episode',$episode)->get();//cái này là cái chứa video đúng k uk
+        $id_anime = $id_anime;
+        return view('layout.detail',compact('cate_menu','type_menu','obj_slider','obj_content','object_ID','id_anime','episode'));
 
     }
     public function getSearch(Request $request){
@@ -61,7 +63,14 @@ class pageController extends Controller
         $obj_slider = db::table('animes')->limit(7)->get();
 
         $keyword = $request->keyword;
-        $search = DB::table('animes') ->where('Title','like','%'.$keyword.'%')->get();
+        $search = DB::table('animes')->where('Title','like','%'.$keyword.'%')->get();
         return view('layout.search',compact('type_menu','cate_menu','obj_content','obj_slider','search'));
+    }
+    public function comment(Request $request){
+        $data = array();
+        $data['id_user'] = 1;
+        $data['id_anime'] = $request->id_anime;
+        $data['content'] = $request->content; 
+        $data = $this->objectRepository->create($data); 
     }
 }

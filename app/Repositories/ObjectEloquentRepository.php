@@ -18,6 +18,4 @@ public function getModel()
 		return \App\Models\Anime::class;
 	}
 
-
-
 }

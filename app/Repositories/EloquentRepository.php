@@ -46,6 +46,7 @@ public function find($id)
 	$result = $this->_model->where('id',$id)->get();
 	return $result;
 }
+
 /**
 * Create
 * @param array $attributes

@@ -15,12 +15,17 @@
                                 
                                 <div class="form-group"> 
                                     <label for="exampleInputEmail1">Title</label>
-                                    <input type="text" name="object_title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input type="text" name="object_title" onkeyup="ChangeToSlug();" class="form-control" id="slug" placeholder="Enter email">
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="exampleInputEmail1">Slug</label>
+                                    <input type="text" name="slug" class="form-control" id="convert_slug" placeholder="Enter email">
                                 </div>
                                  <div class="form-group"> 
                                     <label for="exampleInputEmail1">Content</label>
                                     <textarea type="text" name="object_content" class="form-control" id="exampleInputEmail1" rows="5" style="resize:none" placeholder=""></textarea>
                                 </div>
+                                
                                 <div class="form-group">  
                                     <label >Images</label>
                                     <input type="file" name="images" class="form-control-file" id="exampleInputEmail1" placeholder="Enter email">

@@ -47,6 +47,7 @@ class TypeController extends Controller
     {
         $data = array();
         $data['typeName'] = $request->type_name;
+        $data['slug_type'] = $request->slug_type;
         $data['category_id'] = $request->type_id;
         $data = $this->typeRepository->create($data);
         return redirect()->route('Type.create');
@@ -88,6 +89,7 @@ class TypeController extends Controller
         $type1 = $this->typeRepository->find($id)->first();
         $type = array();
         $type['typeName'] = $request->type_name;
+        $type['slug_type'] = $request->slug_type;
         $type['category_id'] = $request->type_id1;
         $type = $type1->update($type);
         return redirect()->route('Type.index');

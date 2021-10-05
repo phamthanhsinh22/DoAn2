@@ -50,12 +50,13 @@ class ObjectController extends Controller
     {
         $data = array();
         $data['Title'] = $request->object_title;
+        $data['slug'] = $request->slug;
         $data['Content'] = $request->object_content;
         $data['Images'] = $request->images;
         $data['Video'] = $request->videos;
         $data['type_id'] = $request->obje_id1;
         $data['category_id'] = $request->obje_id2;
-        $data = $this->objectRepository->create($data);
+        $data = $this->objectRepository->create($data); 
         return redirect()->route('Object.index');
     }
 
@@ -96,6 +97,7 @@ class ObjectController extends Controller
         $object = $this->objectRepository->find($id)->first;
         $object_arr = array();
         $object_arr['Title'] = $request->title_name;
+        $object_arr['slug'] = $request->slug;
         $object_arr['Content'] = $request->content_name;
         $object_arr['Video'] = $request->video_name;
         $object_arr['Images'] = $request->images_name;

@@ -3,8 +3,6 @@
 @section('object')
 	  <!DOCTYPE html>
 <html lang="vi-VN">
-
-
 <div class="container">
         <!-- Fullbanner -->
         <div class="row ad-container banner-top">
@@ -147,7 +145,7 @@ fjs.parentNode.insertBefore(js, fjs);
                     <div class="movie-info">
                         <div class="block-movie-info movie-info-box">
                             <div class="row">
-                                @foreach($object_ID as $type)
+                                @foreach($object_id as $type)
                                 <div class="col-6 movie-detail">
                                     <h1 class="movie-title"><span class="title-1">{{$type->Title}}</span><span class="title-2" itemprop="name">Nomad: Megalo Box 2</span><span class="title-year"> (2021)</span></h1>
                                     <div class="movie-meta-info">
@@ -202,13 +200,12 @@ fjs.parentNode.insertBefore(js, fjs);
                                     </div>
                                 </div>
                                @endforeach
-                                @foreach($object_ID as $key)
+                                @foreach($object_id as $key)
                                 <div class="col-6 movie-image">
                                     <div class="movie-l-img"><img src="{{asset('assets/images/'.$key->Images)}}" style="width:100%;height:100%;" />
                                         <ul class="btn-block">
                                                 <li class="item"><a id="btn-film-watch" class="btn btn-green btn" id="favorite" href="javascript:void(0)" onclick="return favo(0,7909)"> Lưu lại</a></li>
-                                                
-                                                <li class="item"><a id="btn-film-watch" class="btn btn-red"  href="{{URL('detail/'.$key->id)}}">Xem Anime</a></li>
+                                                <li class="item"><a id="btn-film-watch" class="btn btn-red"  href="{{URL('detail/'.$key->id).'&1'}}">Xem Anime</a></li>
                                                 
                                                 
 											</li>
@@ -243,7 +240,7 @@ fjs.parentNode.insertBefore(js, fjs);
                             <div class="fb-like like-at-content" style="right: 55px!important;" data-href="https://anime47.com/phim/nomad-megalo-box-2/m7909.html" data-width="140" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 <div  style="width: 76px!important;"  data-layout="button_count" data-show-faces="false" data-share="false"></div>
                             <div class="content" id="film-content" itemscope itemtype="http://schema.org/Review" itemprop="review">
-                                @foreach($object_ID as $type)
+                                @foreach($object_id as $type)
                                 <div class="news-article">
                                 <p><p>{{$type->Content}}</p></p>
                                 </div>
@@ -251,15 +248,24 @@ fjs.parentNode.insertBefore(js, fjs);
                                 <p>Chúc các bạn <a href="" >xem anime vietsub</a> vui vẻ tại ANIME47.COM</p>
                                 <span itemprop="author" class="hidden">@anime47.com</span>  
                                 <!-- <p><div class="fb-comments" data-href="https://anime47.com/phim/nomad-megalo-box-2/m7909.html" data-num-posts="7" data-width="100%" data-colorscheme="dark" data-order-by="reverse_time"></div></p> -->
-                                <script>
-                                $(function(){
-                            $('div.thaoluanchovui').html('<p><div class="fb-comments" data-href="https://anime47.com/phim/nomad-megalo-box-2/m7909.html" data-num-posts="7" width="100%" colorscheme="dark" data-order-by="reverse_time"></div></p>');
-                        });
-                                </script>
-                               
-                            
+                                
+                <form class="comment-form" name="id_anime" method="post">
+                 {{csrf_field()}}
+                 {{method_field('POST')}}
+                 <input type="hidden" name="storyID" id="storyID" value="24491"> <input type="hidden" name="replyTo" value="0">
+                 
+                    <textarea aria-label="Bình luận" id="comment-message" name="message" placeholder="Nội dung bình luận tối thiểu 15 ký tự, tối đa 500 ký tự!"></textarea>
+                    @foreach($object_id as $type)
+                    <input type="hidden" name="id_anime" value="{{$type->id}}">
+                    @endforeach
+                    <p id="comment-char-count">Số ký tự: <span>0</span></p>
+                    <div class="text-right">
+                        <button type="submit"><i class="fa-paper-plane"></i> Gửi</button>
+                    </div>
+                </form>
                     </blockquote>
                     <div class="clear"></div>
+
 </div></div>
 
 

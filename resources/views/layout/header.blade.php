@@ -89,13 +89,15 @@
                     <div class="search-suggest" style="display: none;">
                         <ul style="margin-bottom: 0;" id="search-suggest-list"></ul>
                     </div>
-</div>
-
+                </div>
+                
                 <div class="widget_user_header">
                     <a class="button-register" rel="nofollow" href=""></a>
-                    <a class="button-login" rel="nofollow" href="{{URL('dangnhap')}}"></a>
+
+                    <a class="button-login" rel="nofollow" href="{{URL('dangnhap')}}"> 
+                    </a>
                     <a class="button-login-with-fb" rel="nofollow" href=""></a>
-</div>            
+                </div>            
             </div>
         </div>
     </header>
@@ -110,7 +112,7 @@
               <ul> 
                 @foreach($type_menu as $typ)
                   @if($cats->id == $typ->category_id)
-                <li><a href="{{URL('type/'.$typ->id)}}">{{$typ->typeName}}</a> </li>
+                <li><a href="{{URL('type/'.$typ->slug_type)}}">{{$typ->typeName}}</a> </li>
                 @endif
                 @endforeach
               </ul> 

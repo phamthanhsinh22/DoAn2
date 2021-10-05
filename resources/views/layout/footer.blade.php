@@ -5,7 +5,7 @@
     <div class="bar-wrap">
         <ul class="links">
             <li><a href="/">Xem anime</a></li>
-            <li><a href="https://hayhaytv.tv/" title="HayHayTv Xem phim hay online miễn phí Full HD">HayHayTv</a></li>
+            <li><a href="https://hayhaytv.tv/" >HayHayTv</a></li>
             
         
             

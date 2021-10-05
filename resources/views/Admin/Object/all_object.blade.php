@@ -17,6 +17,7 @@
             </th>
             <th>ID</th>
             <th>Title</th>
+            <th>Slug</th>
             <th style="width: 350px;">Content</th>
             <th>Video</th>
             <th>Images</th>
@@ -31,10 +32,10 @@
             <td><label class="i-checks m-b-none"><input type="checkbox" name=""><i></i></label></td>
             <td><span class="text-ellipsis">{{$object->id}}</span></td>
             <td><span class="text-ellipsis">{{$object->Title}}</span></td>
-            
+            <td><span class="text-ellipsis">{{$object->slug}}</span></td> 
             <td>
             <textarea class="form-control"  rows="10">{{$object->Content}}</textarea>
-            </td>                  
+            </td>                 
             <td><span class="text-ellipsis">{{$object->Video}}</span></td>
             <td><span class="text-ellipsis">{{$object->Images}}</span></td>
             <td><span class="text-ellipsis">{{$object->type_id}}</span></td>

@@ -18,6 +18,10 @@
                                     <input type="text" name="title_name" class="form-control" id="exampleInputEmail1" placeholder="Tên Mới">
                                 </div>  
                                 <div class="form-group">
+                                    <label for="exampleInputEmail1">{{$object->slug}}</label>
+                                    <input type="text" name="title_name" class="form-control" id="exampleInputEmail1" placeholder="Tên Mới">
+                                </div>
+                                <div class="form-group">
                                     <textarea class="form-control" name="content_name" rows="10" for="exampleInputEmail1">{{$object->Content}}</textarea>
                                     
                                 </div>

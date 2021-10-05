@@ -37,6 +37,7 @@
             </th>
             <th>ID</th>
             <th>Name</th>
+            <th>Slug</th>
             <th>ID Category</th>
             <th style="width:30px;"></th>
           </tr>
@@ -47,6 +48,7 @@
             <td><label class="i-checks m-b-none"><input type="checkbox" name=""><i></i></label></td>
             <td><span class="text-ellipsis">{{$type->id}}</span></td>
             <td><span class="text-ellipsis">{{$type->typeName}}</span></td>
+            <td><span class="text-ellipsis">{{$type->slug_type}}</span></td>
             <td><span class="text-ellipsis">{{$type->category_id}}</span></td>
             <td>
             <button>  <a href="{{route('Type.edit',$type->id)}}" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a></button>

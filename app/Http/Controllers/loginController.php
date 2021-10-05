@@ -15,7 +15,7 @@ class loginController extends Controller
             'password'=>$request->password, 
         ];
         if(Auth::attempt($arr)){
-            return redirect('admin');
+            return redirect('trangchu');
         }else
         {
             return redirect('dangnhap');
@@ -26,3 +26,4 @@ class loginController extends Controller
         return redirect('dangnhap')->with('notice','Ban da dang xuat thanh cong');
     }
 }
+

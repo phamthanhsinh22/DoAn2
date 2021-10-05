@@ -15,6 +15,12 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Name</label>
                                     <input type="text" name="type_name"  class="form-control" id="exampleInputEmail1" placeholder="Tên Mới">
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Slug</label>
+                                    <input type="text" name="slug_type"  class="form-control" id="exampleInputEmail1" placeholder="Tên Mới">
+                                    
                                 </div>
                             <select name="type_id1">
                                 @foreach($category_ID as $key)

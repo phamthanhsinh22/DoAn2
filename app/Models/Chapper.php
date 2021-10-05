@@ -5,15 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Chapper extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'catName',
-        'slug_cat'
+        'Title',
+        'Content',
+        'Video',
+        'episode',
+        'anime_id',
         
     ];
-    protected function categories(){
-        return $this->belongsTo(Category::class);
+    protected function animes(){
+        return $this->belongsTo(Anime::class);
     }
 }

@@ -28,7 +28,7 @@
                         <ul id="movie-carousel-top">
                           @foreach($obj_slider as $obj_sli)
                             <li>
-                                <a class="movie-item m-block"  href="{{URL('object/'.$obj_sli->id)}}"> 
+                                <a class="movie-item m-block"  href="{{URL('object/'.$obj_sli->slug)}}"> 
                                   
                                     <div class="block-wrapper">
                                         <div class="movie-thumbnail ratio-box ratio-3_4">
@@ -84,12 +84,12 @@
                    
                 
                 <div class="movie-list-index home-v2">
-            @foreach($type_menu1 as $type1)
+            @foreach($type_id as $type1)
             <div class="block update">
                 <div id="qc_clgt"> </div>
                     
                     <div class="widget-title">
-                  <a href="{{URL('type/'.$type1->id)}}"> <h3 class="title">{{$type1->typeName}}</h3></a>
+                  <a href="{{URL('type/'.$type1->slug_type)}}"> <h3 class="title">{{$type1->typeName}}</h3></a>
                    
                     <div class="clear"></div>
                     @foreach($obj_content as $obj_ct)
@@ -100,7 +100,7 @@
                           
                            <li>
                                 
-                                <a class="movie-item m-block"  href="{{URL('object/'.$obj_ct->id)}}">
+                                <a class="movie-item m-block"  href="{{URL('object/'.$obj_ct->slug)}}">
                                     
                                     <div class="block-wrapper">
                                         <div class="movie-thumbnail ratio-box ratio-3_4">
